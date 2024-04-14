@@ -7,11 +7,23 @@
 - The game is challenging because the pipes have openings at different heights, requiring precise timing and control to pass through them. Each successful pass through a pipe earns the player a point, and the goal is to achieve the highest score possible. 
 - The game continues until the bird collides with a pipe or the ground, at which point the game is over. 
 
+## Play link
+
+https://kaleidoscopic-marigold-79b617.netlify.app/
 
 ## How to use
 
+Install the project
 ```sh
-npm i - install the project
-npm run start - dev version
-npm run build - make production version
+npm i
+```
+
+Start dev version
+```sh
+npm run start
+```
+
+Build production version
+```sh
+npm run build
 ```
