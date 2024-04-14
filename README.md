@@ -1,5 +1,4 @@
 # Flappy Bird Clone
-## _The Last Markdown Editor, Ever_
 
 > Flappy Bird gained immense popularity for its simple yet addictive gameplay and became a cultural phenomenon in the world of mobile gaming ✨ 
 
