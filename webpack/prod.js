@@ -41,8 +41,8 @@ module.exports = {
         new CopyWebpackPlugin({
           patterns: [
             {
-              from: path.resolve(__dirname, "../src/assets/sounds"),
-              to: path.resolve(__dirname, "../dist/src/assets/sounds"),
+              from: path.resolve(__dirname, "../assets/sounds"),
+              to: path.resolve(__dirname, "../dist/assets/sounds"),
               globOptions: {
                 ignore: ["*.DS_Store"],
               },
@@ -53,32 +53,32 @@ module.exports = {
         new CopyWebpackPlugin({
             patterns: [
                 {
-                  from: path.resolve(__dirname, '../src/assets/sprites'),
-                  to: path.resolve(__dirname, '../dist/src/assets/sprites'),
+                  from: path.resolve(__dirname, '../assets/sprites'),
+                  to: path.resolve(__dirname, '../dist/assets/sprites'),
                   globOptions: {
                       ignore: ['*.DS_Store'],
                   },
                   noErrorOnMissing: true,
                 },
                 {
-                  from: path.resolve(__dirname, "../src/assets/styles"),
-                  to: path.resolve(__dirname, "../dist/src/assets/styles"),
+                  from: path.resolve(__dirname, "../assets/styles"),
+                  to: path.resolve(__dirname, "../dist/assets/styles"),
                   globOptions: {
                       ignore: ["*.DS_Store", "**/scss-styles"],
                   },
                   noErrorOnMissing: true,
                 },
                 {
-                  from: path.resolve(__dirname, "../src/assets/html"),
-                  to: path.resolve(__dirname, "../dist/src/assets/html"),
+                  from: path.resolve(__dirname, "../assets/html"),
+                  to: path.resolve(__dirname, "../dist/assets/html"),
                   globOptions: {
                       ignore: ["*.DS_Store"],
                   },
                   noErrorOnMissing: true,
                 },
                 {
-                  from: path.resolve(__dirname, "../src/assets/images"),
-                  to: path.resolve(__dirname, "../dist/src/assets/images"),
+                  from: path.resolve(__dirname, "../assets/images"),
+                  to: path.resolve(__dirname, "../dist/assets/images"),
                   globOptions: {
                       ignore: ["*.DS_Store"],
                   },
@@ -88,8 +88,8 @@ module.exports = {
         }),
         new CopyWebpackPlugin({
           patterns: [                {
-                  from: path.resolve(__dirname, "../src/assets/fonts"),
-                  to: path.resolve(__dirname, "../dist/src/assets/fonts"),
+                  from: path.resolve(__dirname, "../assets/fonts"),
+                  to: path.resolve(__dirname, "../dist/assets/fonts"),
                   globOptions: {
                       ignore: ["*.DS_Store"],
                   },
@@ -97,7 +97,7 @@ module.exports = {
                 }]
         }),
         new MiniCssExtractPlugin({
-        filename: "src/assets/styles/main-styles.css",
+        filename: "../assets/styles/main-styles.css",
         }),
         new ImageminWebpWebpackPlugin({
             config: [
@@ -122,7 +122,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        include: [path.resolve(__dirname, "../src/assets/styles/scss-styles")],
+        include: [path.resolve(__dirname, "../assets/styles/scss-styles")],
 
         use: [
           MiniCssExtractPlugin.loader,
@@ -155,7 +155,7 @@ module.exports = {
         test: /\.(woff(2)?|ttf|eot)$/,
         type: "asset/resource",
         generator: {
-          filename: "../dist/src/assets/fonts/[name][ext]",
+          filename: "../dist/assets/fonts/[name][ext]",
         },
       },
     ],

@@ -10,6 +10,7 @@ export default class GameScene extends BaseScene {
     this.pipes = null;
     this.flapVelocity = 400;
     this.isPaused = false;
+    this.isOver = false;
 
     this.score = 0;
     this.scoreText = '';
@@ -35,6 +36,7 @@ export default class GameScene extends BaseScene {
 
 
   checkScore() {
+    if (this.isOver) { return; }
     this.scoreText.setText(`Score: ${this.score}`);
     this.pipes.getChildren().forEach(pipe => {
       if ((Math.ceil(pipe.x) == this.bird.x) || (Math.trunc(pipe.x) == this.bird.x))  {
@@ -70,6 +72,7 @@ export default class GameScene extends BaseScene {
   }
 
   createBird() {
+    this.isOver = false;
     this.bird = this.physics.add.sprite(this.config.startPosition.x, this.config.startPosition.y, 'birds').setOrigin(0, 0);
     this.bird.body.gravity.y = 800;
     this.bird.setCollideWorldBounds(true);
@@ -152,11 +155,12 @@ export default class GameScene extends BaseScene {
   }
 
   gameOver() {
+    this.isOver = true;
     this.physics.pause();
     this.bird.setTint(0x4682B4);
     this.bird.stop('flap');
 
-    // this.saveBestScore();
+    this.saveBestScore();
 
     this.time.addEvent({
       delay: 1000,
@@ -182,6 +186,7 @@ export default class GameScene extends BaseScene {
   }
 
   recyclePipes() {
+
     const tempPipes = [];
     this.pipes.getChildren().forEach(pipe => {
       if (pipe.getBounds().right <= 0) {
